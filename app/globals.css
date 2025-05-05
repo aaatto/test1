@@ -1,0 +1,112 @@
+/* File: app/globals.css (Global Vars & Base - Verified) */
+
+/* Basic CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Define Theme Variables Globally */
+:root {
+  /* Dark Theme Variables (Default) */
+  --bg-color: 240 10% 3.9%; /* Very Dark Gray */
+  --text-color: 0 0% 98%; /* Almost White */
+  --text-muted-color: 240 5% 64.9%; /* Lighter Gray */
+  --primary-color-hsl: 262.1 83.3% 57.8%; /* Purple HSL */
+  --primary-color: hsl(var(--primary-color-hsl));
+  --primary-text-color: 0 0% 100%; /* White */
+  --secondary-color-hsl: 35.6 91.7% 54.5%; /* Orange HSL */
+  --secondary-color: hsl(var(--secondary-color-hsl));
+  --secondary-text-color: 240 10% 3.9%; /* Dark Gray text on Orange */
+  --card-bg: 240 10% 10%; /* Slightly lighter dark */
+  --card-text: var(--text-color);
+  --border-color: 240 3.7% 15.9%; /* Darker Gray Border */
+  --input-bg: 240 3.7% 15.9%;
+  --input-text: var(--text-color);
+  --input-border: 240 3.7% 25%;
+  --ring-color: hsl(var(--primary-color-hsl));
+  --muted-bg: 240 3.7% 15.9%;
+  --destructive-color: 0 72.2% 50.6%; /* Darker Red */
+  --destructive-text: 0 0% 100%;
+  --accent-bg: 240 3.7% 25%;
+  --accent-text: 0 0% 98%;
+
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+
+  color-scheme: dark;
+}
+
+/* Apply base styles */
+html {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+/* Basic link styling */
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: opacity 0.2s ease-in-out;
+}
+a:hover {
+  opacity: 0.8;
+  text-decoration: underline;
+}
+
+/* Container utility (can stay global) */
+.container {
+  width: 100%;
+  max-width: 1400px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+/* Global animation */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+.animate-spin {
+  animation: spin 1s linear infinite;
+}
+
+/* Screen reader only class */
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+}

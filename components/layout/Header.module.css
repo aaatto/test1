@@ -1,0 +1,146 @@
+/* File: components/layout/Header.module.css */
+
+.siteHeader {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    width: 100%;
+    border-bottom: 1px solid var(--border-color);
+    background-color: rgba(17, 24, 39, 0.85); /* Slightly less transparent */
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.container { /* Scoped container for header */
+    display: flex;
+    height: 4rem; /* Slightly taller */
+    align-items: center;
+    width: 100%;
+    max-width: 1400px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+}
+
+.logoLink {
+    display: flex;
+    align-items: center;
+    margin-right: 2rem;
+}
+.logoLink span {
+    font-weight: 700;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    font-size: 1.25rem; /* Larger logo text */
+}
+
+.mainNav {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    gap: 1.75rem; /* More space */
+    font-size: 0.9rem; /* Slightly larger nav text */
+    font-weight: 500;
+}
+.mainNav a {
+    color: var(--text-muted-color);
+    transition: color 0.2s ease-in-out;
+    position: relative;
+    padding-bottom: 0.25rem;
+}
+.mainNav a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px; /* Slightly lower underline */
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-color);
+    transform: scaleX(0);
+    transform-origin: bottom right;
+    transition: transform 0.3s ease-out;
+}
+.mainNav a:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+.mainNav a:hover {
+    color: var(--text-color);
+    opacity: 1;
+    text-decoration: none;
+}
+
+.headerRight {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0.75rem;
+}
+
+.creditsDisplay {
+    display: flex;
+    align-items: center;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--text-muted-color);
+    background-color: var(--muted-bg);
+    padding: 0.3rem 0.6rem;
+    border-radius: var(--radius-md);
+    border: 1px solid var(--border-color);
+}
+.creditsDisplay svg {
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.35rem;
+    color: var(--secondary-color); /* Orange icon */
+}
+.buyCreditsButton { /* Style the link/button specifically */
+    margin-left: 0.3rem;
+    color: var(--primary-color);
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+.buyCreditsButton:hover {
+    opacity: 0.8;
+}
+.buyCreditsButton svg {
+     width: 1.1rem; /* Slightly larger icon */
+    height: 1.1rem;
+    margin-right: 0; /* No margin needed */
+}
+
+.userName {
+    font-size: 0.875rem;
+    color: var(--text-muted-color);
+    margin-right: 0.5rem; /* Add some space before logout */
+}
+
+/* Basic Button Styles (Scoped) */
+.button {
+    display: inline-flex; align-items: center; justify-content: center; white-space: nowrap; border-radius: var(--radius-md); font-size: 0.875rem; font-weight: 500; border: 1px solid transparent; cursor: pointer; transition: all 0.2s ease-in-out; padding: 0.5rem 1rem; height: 2.25rem; /* button-sm height */ user-select: none;
+}
+.button:focus-visible { outline: 2px solid var(--ring-color); outline-offset: 2px; }
+.button:disabled { opacity: 0.5; pointer-events: none; }
+.buttonPrimary { background-color: var(--primary-color); color: var(--primary-text-color); }
+.buttonPrimary:hover:not(:disabled) { background-color: hsl(var(--primary-color-hsl), 0.9); } /* Slightly darker */
+.buttonGhost { background-color: transparent; border-color: transparent; color: var(--text-muted-color); } /* Muted text for ghost */
+.buttonGhost:hover:not(:disabled) { background-color: var(--accent-bg); color: var(--accent-text); }
+.button svg { height: 1rem; width: 1rem; }
+.button svg:first-child:not(:last-child) { margin-right: 0.5rem; }
+
+@media (max-width: 768px) {
+    .userName { display: none; }
+    .mainNav { gap: 0.75rem; }
+    .container { padding-left: 1rem; padding-right: 1rem; }
+}
+

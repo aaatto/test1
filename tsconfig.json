@@ -1,0 +1,33 @@
+// File: tsconfig.json
+{
+  "compilerOptions": {
+    // Type Checking
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+
+    // Modules - **UPDATED HERE**
+    "module": "nodenext", // Changed from "esnext"
+    "moduleResolution": "nodenext", // Keep as "nodenext"
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+
+    // Language and Environment
+    "jsx": "preserve",
+
+    // Project Structure
+    "incremental": true,
+    "plugins": [ { "name": "next" } ],
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "src"] // Ensure 'src' is excluded if you deleted it
+}
